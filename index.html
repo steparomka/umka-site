@@ -472,7 +472,7 @@ footer a{color:var(--green);text-decoration:none;}
             <span class="faq-arrow">▾</span>
           </button>
           <div class="faq-a">
-            <p>Мы принимаем детей с 1,5 лет! Для самых маленьких у нас есть специальная программа «Развивайка» — занятия разработаны именно для малышей от полутора лет. Мышление, моторика, речь и первые навыки общения в игровой форме.</p>
+            <p>Мы принимаем детей с 2 лет! Для самых маленьких у нас есть специальная программа «Развивайка» — занятия разработаны именно для малышей от 2 лет. Мышление, моторика, речь и первые навыки общения в игровой форме.</p>
           </div>
         </div>
 
@@ -482,7 +482,7 @@ footer a{color:var(--green);text-decoration:none;}
             <span class="faq-arrow">▾</span>
           </button>
           <div class="faq-a">
-            <p>Конечно! Пробное занятие доступно с 1,5 лет по всем направлениям. Некоторые пробные занятия — бесплатно. Позвоните нам по номеру <a href="tel:+79148982526" style="color:var(--green);font-weight:700;">8-914-898-25-26</a> и мы запишем вас на удобное время.</p>
+            <p>Конечно! Пробное занятие доступно с 2 лет по всем направлениям. Некоторые пробные занятия — бесплатно. Позвоните нам по номеру <a href="tel:+79148982526" style="color:var(--green);font-weight:700;">8-914-898-25-26</a> и мы запишем вас на удобное время.</p>
           </div>
         </div>
 
@@ -502,7 +502,7 @@ footer a{color:var(--green);text-decoration:none;}
             <span class="faq-arrow">▾</span>
           </button>
           <div class="faq-a">
-            <p>Для самых маленьких (1,5–3 года) присутствие мамы или папы на первых занятиях приветствуется — так ребёнку легче адаптироваться. Для детей постарше занятия проходят без родителей, но вы всегда можете пообщаться с педагогом после урока.</p>
+            <p>Для самых маленьких (2–3 года) присутствие мамы или папы на первых занятиях приветствуется — так ребёнку легче адаптироваться. Для детей постарше занятия проходят без родителей, но вы всегда можете пообщаться с педагогом после урока.</p>
           </div>
         </div>
 
@@ -655,16 +655,25 @@ footer a{color:var(--green);text-decoration:none;}
 
       <!-- VK новости -->
       <div style="margin-bottom:2rem;">
-        <div style="background:white;border-radius:20px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,.07);text-align:center;">
-          <div style="font-size:2rem;margin-bottom:.5rem;">🔵</div>
-          <h3 style="font-family:'Comfortaa',cursive;margin-bottom:.5rem;">Новости из ВКонтакте</h3>
-          <p style="color:var(--text-light);margin-bottom:1.5rem;font-size:.9rem;">Все актуальные новости публикуем в нашей группе ВКонтакте</p>
-          <a href="https://vk.com/taishet_razvitie_detey" target="_blank" style="display:inline-flex;align-items:center;gap:.8rem;background:#0077FF;color:white;font-weight:800;font-size:1rem;padding:14px 32px;border-radius:50px;text-decoration:none;box-shadow:0 6px 20px rgba(0,119,255,.35);">
-            Открыть группу ВКонтакте →
-          </a>
-          <div id="vk_groups" style="margin-top:1.5rem;"></div>
+        <div style="background:white;border-radius:20px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,.07);">
+          <h3 style="font-family:'Comfortaa',cursive;margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem;">🔵 Новости из ВКонтакте</h3>
+          <div id="vk_groups"></div>
+          <div id="vk_fallback" style="text-align:center;padding:1rem;display:none;">
+            <a href="https://vk.com/taishet_razvitie_detey" target="_blank" style="display:inline-flex;align-items:center;gap:.8rem;background:#0077FF;color:white;font-weight:800;font-size:1rem;padding:14px 32px;border-radius:50px;text-decoration:none;">Открыть группу ВКонтакте →</a>
+          </div>
           <script type="text/javascript">
-            VK.Widgets.Group("vk_groups", {mode: 4, wide: 1, width: "auto", height: "400"}, 211644313);
+            function initVK() {
+              if(window.VK && document.getElementById('vk_groups')) {
+                try {
+                  VK.Widgets.Group("vk_groups", {mode:4, wide:1, width:"auto", height:"500"}, 211644313);
+                } catch(e) {
+                  document.getElementById('vk_fallback').style.display='block';
+                }
+              } else {
+                document.getElementById('vk_fallback').style.display='block';
+              }
+            }
+            if(window.VK) { initVK(); } else { setTimeout(initVK, 1500); }
           </script>
         </div>
       </div>
@@ -947,7 +956,7 @@ footer a{color:var(--green);text-decoration:none;}
       <div class="classes-grid">
 
         <div class="class-card">
-          <div class="class-photo"><img src="images/mk_plates.jpg" alt="Роспись тарелочек"><div class="class-photo-overlay" style="color:var(--pink);">🍽️ Для всех</div></div>
+          <div class="class-photo" style="background:linear-gradient(135deg,#ffe0f0,#ffd6e7);display:flex;align-items:center;justify-content:center;font-size:5rem;">🎨</div>
           <div class="class-body">
             <h3>Роспись тарелочек, футболок, сумочек и др.</h3>
             <p>Проведите свои выходные интересно и увлекательно! Такие занятия сближают людей и дарят положительные эмоции. Создайте уникальную вещь своими руками — это вам окажется под силу!</p>
@@ -957,7 +966,7 @@ footer a{color:var(--green);text-decoration:none;}
         </div>
 
         <div class="class-card">
-          <div class="class-photo"><img src="images/mk_kids.jpg" alt="Мастер-класс"><div class="class-photo-overlay" style="color:var(--green);">🌸 от 5 лет</div></div>
+          <div class="class-photo" style="background:linear-gradient(135deg,#e8fff2,#b2f5d8);display:flex;align-items:center;justify-content:center;font-size:5rem;">🌸</div>
           <div class="class-body">
             <h3>Цветочные корзины из конфет и зефира</h3>
             <p>Мастер-класс флористического направления. Уместнее всего проводить к 8 марта, дню рождения, для именинника и к другим праздникам. Создайте красивый съедобный букет своими руками!</p>
@@ -977,7 +986,7 @@ footer a{color:var(--green);text-decoration:none;}
         </div>
 
         <div class="class-card">
-          <div class="class-photo"><img src="images/mk_class.jpg" alt="Лепка"><div class="class-photo-overlay" style="color:var(--orange);">🧸 от 5 лет</div></div>
+          <div class="class-photo" style="background:linear-gradient(135deg,#fff5e0,#fde68a);display:flex;align-items:center;justify-content:center;font-size:5rem;">🧸</div>
           <div class="class-body">
             <h3>Лепка из полимерной глины</h3>
             <p>Можно изготовить игрушку, сувенир, магнит или поделку для интерьера. Работать не сложно, как с детским пластилином. А результат вас порадует. Ведь это ручная работа!</p>
@@ -987,7 +996,7 @@ footer a{color:var(--green);text-decoration:none;}
         </div>
 
         <div class="class-card">
-          <div class="class-photo"><img src="images/mk_balloons.jpg" alt="Шары"><div class="class-photo-overlay" style="color:var(--blue);">🎈 от 5 лет</div></div>
+          <div class="class-photo" style="background:linear-gradient(135deg,#e0f0ff,#bfdbfe);display:flex;align-items:center;justify-content:center;font-size:5rem;">🎈</div>
           <div class="class-body">
             <h3>Игрушки из воздушных шаров</h3>
             <p>Такой мастер-класс обязательно поднимет настроение всем участникам! Так весело — сделать красивую поделку из шариков или букет из воздушных цветов. У нас много вариантов для вас!</p>
@@ -997,7 +1006,7 @@ footer a{color:var(--green);text-decoration:none;}
         </div>
 
         <div class="class-card">
-          <div class="class-photo"><img src="images/mk_hands.jpg" alt="Сквиш"><div class="class-photo-overlay" style="color:var(--green);">🧶 от 5 лет</div></div>
+          <div class="class-photo" style="background:linear-gradient(135deg,#f0fff4,#c6f6d5);display:flex;align-items:center;justify-content:center;font-size:5rem;">🧶</div>
           <div class="class-body">
             <h3>Делаем сквиш</h3>
             <p>От стресса и скуки спасёт котиный лапка! Это увлекательно для детей. Мягкие антистресс-игрушки своими руками — весело и полезно!</p>
@@ -1187,7 +1196,7 @@ function addComment(){
 }
 // ── QUIZ ──
 const quizQuestions=[
-  {q:'Сколько лет вашему ребёнку?',opts:[{t:'👶 1,5–3 года',v:'baby'},{t:'🧒 4–5 лет',v:'preschool'},{t:'🎒 6–7 лет',v:'school'},{t:'📚 8 лет и старше',v:'older'}]},
+  {q:'Сколько лет вашему ребёнку?',opts:[{t:'👶 2–3 года',v:'baby'},{t:'🧒 4–5 лет',v:'preschool'},{t:'🎒 6–7 лет',v:'school'},{t:'📚 8 лет и старше',v:'older'}]},
   {q:'Что больше всего интересует ребёнка?',opts:[{t:'🎨 Рисование и творчество',v:'art'},{t:'📖 Учёба и знания',v:'study'},{t:'💻 Технологии и игры',v:'tech'},{t:'🌍 Всё понемногу',v:'mixed'}]},
   {q:'Какая главная цель?',opts:[{t:'🧠 Общее развитие',v:'develop'},{t:'🏫 Подготовка к школе',v:'prepare'},{t:'🗣️ Речь и общение',v:'speech'},{t:'🌟 Найти талант',v:'talent'}]},
   {q:'Как ребёнок лучше учится?',opts:[{t:'🎮 В игровой форме',v:'play'},{t:'📝 Через задания',v:'tasks'},{t:'🤝 В группе с друзьями',v:'group'},{t:'👤 Индивидуально',v:'solo'}]}
