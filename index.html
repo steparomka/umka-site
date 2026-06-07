@@ -97,7 +97,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
 .news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
 .news-card{background:white;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:transform .25s,box-shadow .25s;}
 .news-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.12);}
-.news-card-img{height:240px;overflow:hidden;position:relative;background:linear-gradient(135deg,#e8fff2,#e0f0ff);width:100%;}
+.news-card-img{height:280px;overflow:hidden;position:relative;background:linear-gradient(135deg,#e8fff2,#e0f0ff);width:100%;}
 .news-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
 .news-card:hover .news-card-img img{transform:scale(1.06);}
 .news-card-emoji{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem;}
@@ -158,7 +158,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
 .classes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.5rem;}
 .class-card{background:white;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:transform .25s,box-shadow .25s;}
 .class-card:hover{transform:translateY(-6px);box-shadow:0 18px 45px rgba(0,0,0,.12);}
-.class-photo{height:220px;overflow:hidden;position:relative;background:#f0f0f0;display:flex;align-items:center;justify-content:center;}
+.class-photo{height:280px;width:100%;overflow:hidden;position:relative;background:#f0f0f0;display:flex;align-items:center;justify-content:center;}
 .class-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
 .class-card:hover .class-photo img{transform:scale(1.06);}
 .class-photo-overlay{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.95);border-radius:50px;padding:5px 14px;font-size:.78rem;font-weight:800;}
@@ -568,7 +568,7 @@ footer a{color:var(--green);text-decoration:none;}
     <div class="section-inner">
       <div class="classes-grid">
         <div class="class-card">
-          <div class="class-photo"><img src="images/razvivajka2.jpg" alt="Развивайка"><div class="class-photo-overlay" style="color:var(--green);">🧩 от 2 лет</div></div>
+          <div class="class-photo"><img src="images/razvivajka_new.jpg" alt="Развивайка"><div class="class-photo-overlay" style="color:var(--green);">🧩 от 2 лет</div></div>
           <div class="class-body"><h3>Развивайка</h3><p>Первые годы жизни — самая благоприятная пора. Мышление, творчество, моторика, речь и социализация в игровой форме для малышей.</p><div class="class-tags"><span class="tag">Мышление</span><span class="tag">Моторика</span><span class="tag">Речь</span></div></div>
           <div class="class-footer"><span class="age-badge" style="background:linear-gradient(135deg,var(--green),var(--teal))">от 2 лет</span><button class="enroll-btn" onclick="showPage('contacts')">Записаться →</button></div>
         </div>
@@ -578,7 +578,7 @@ footer a{color:var(--green);text-decoration:none;}
           <div class="class-footer"><span class="age-badge" style="background:linear-gradient(135deg,var(--blue),var(--purple))">от 4 лет</span><button class="enroll-btn" onclick="showPage('contacts')">Записаться →</button></div>
         </div>
         <div class="class-card">
-          <div class="class-photo"><img src="images/paint1.jpg" alt="Рисование"><div class="class-photo-overlay" style="color:var(--pink);">🎨 от 3 лет</div></div>
+          <div class="class-photo"><img src="images/drawing_new.jpg" alt="Рисование"><div class="class-photo-overlay" style="color:var(--pink);">🎨 от 3 лет</div></div>
           <div class="class-body"><h3>Художественное творчество</h3><p>Рисование развивает воображение, моторику и мышление. Дети создают свой уникальный мир.</p><div class="class-tags"><span class="tag">Воображение</span><span class="tag">Творчество</span><span class="tag">Память</span></div></div>
           <div class="class-footer"><span class="age-badge" style="background:linear-gradient(135deg,var(--pink),var(--orange))">от 3 лет</span><button class="enroll-btn" onclick="showPage('contacts')">Записаться →</button></div>
         </div>
@@ -653,30 +653,42 @@ footer a{color:var(--green);text-decoration:none;}
   <section class="section">
     <div class="section-inner">
 
-      <!-- VK новости -->
-      <div style="margin-bottom:2rem;">
-        <div style="background:white;border-radius:20px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,.07);">
-          <h3 style="font-family:'Comfortaa',cursive;margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem;">🔵 Новости из ВКонтакте</h3>
-          <div id="vk_groups"></div>
-          <div id="vk_fallback" style="text-align:center;padding:1rem;display:none;">
-            <a href="https://vk.com/taishet_razvitie_detey" target="_blank" style="display:inline-flex;align-items:center;gap:.8rem;background:#0077FF;color:white;font-weight:800;font-size:1rem;padding:14px 32px;border-radius:50px;text-decoration:none;">Открыть группу ВКонтакте →</a>
+      <div id="newsList" class="news-grid">
+        <div class="news-card">
+          <div class="news-card-img" style="background:linear-gradient(135deg,#e8fff2,#e0f0ff);display:flex;align-items:center;justify-content:center;position:relative;">
+            <div style="width:100%;height:100%;position:relative;overflow:hidden;">
+              <div style="display:flex;width:100%;height:100%;transition:transform .4s;" id="graduation-carousel">
+                <img src="images/news_pressotherapy.jpg" alt="Фото" style="width:100%;height:100%;object-fit:cover;flex-shrink:0;">
+                <img src="images/news_razvivajka.jpg" alt="Фото" style="width:100%;height:100%;object-fit:cover;flex-shrink:0;">
+                <img src="images/news_masterklass.jpg" alt="Фото" style="width:100%;height:100%;object-fit:cover;flex-shrink:0;">
+              </div>
+              <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;">
+                <div style="width:8px;height:8px;border-radius:50%;background:white;" class="grad-dot" data-index="0"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);" class="grad-dot" data-index="1"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);" class="grad-dot" data-index="2"></div>
+              </div>
+            </div>
           </div>
-          <script type="text/javascript">
-            function initVK() {
-              if(window.VK && document.getElementById('vk_groups')) {
-                try {
-                  VK.Widgets.Group("vk_groups", {mode:4, wide:1, width:"auto", height:"500"}, 211644313);
-                } catch(e) {
-                  document.getElementById('vk_fallback').style.display='block';
-                }
-              } else {
-                document.getElementById('vk_fallback').style.display='block';
-              }
-            }
-            if(window.VK) { initVK(); } else { setTimeout(initVK, 1500); }
-          </script>
+          <div class="news-card-body">
+            <div class="news-date">📅 7 июня 2026</div>
+            <h3>Подготовка к школе. Выпуск 2026</h3>
+            <p>Поздравляем наших выпускников! 🎓 Дети завершили курс подготовки к школе и готовы к новым учебным достижениям. Спасибо за внимание, усердие и отличное поведение! Желаем вам успехов в школе!</p>
+            <span class="news-tag" style="background:#F97316;">Праздник</span>
+          </div>
         </div>
       </div>
+
+      <script>
+        let gradCurrent = 0;
+        const gradCarousel = document.getElementById('graduation-carousel');
+        const gradDots = document.querySelectorAll('.grad-dot');
+        
+        setInterval(() => {
+          gradCurrent = (gradCurrent + 1) % 3;
+          if(gradCarousel) gradCarousel.style.transform = `translateX(-${gradCurrent * 100}%)`;
+          gradDots.forEach((d, i) => d.style.background = i === gradCurrent ? 'white' : 'rgba(255,255,255,.5)');
+        }, 4000);
+      </script>
       <!-- Admin button -->
       <div style="text-align:right;margin-bottom:1.5rem;">
         <button onclick="toggleAdmin()" style="background:none;border:2px solid #e5e7eb;border-radius:50px;padding:8px 18px;font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem;color:var(--text-light);cursor:pointer;">⚙️ Войти как администратор</button>
@@ -956,7 +968,7 @@ footer a{color:var(--green);text-decoration:none;}
       <div class="classes-grid">
 
         <div class="class-card">
-          <div class="class-photo"><img src="images/mk_tshirt.jpg" alt="Роспись"></div>
+          <div class="class-photo"><img src="images/mk_hands_new.jpg" alt="Роспись"></div>
           <div class="class-body">
             <h3>Роспись тарелочек, футболок, сумочек и др.</h3>
             <p>Проведите свои выходные интересно и увлекательно! Такие занятия сближают людей и дарят положительные эмоции. Создайте уникальную вещь своими руками — это вам окажется под силу!</p>
@@ -976,7 +988,7 @@ footer a{color:var(--green);text-decoration:none;}
         </div>
 
         <div class="class-card">
-          <div class="class-photo"><img src="images/mk_gelcandle.jpg" alt="Гелевые свечи"></div>
+          <div class="class-photo"><img src="images/mk_candles_new.jpg" alt="Гелевые свечи"></div>
           <div class="class-body">
             <h3>Гелевые свечи и декоративные игрушки</h3>
             <p>Создайте уникальные декоративные изделия своими руками. Гелевые свечи — красиво, необычно и долго хранятся. Отличный подарок для близких!</p>
@@ -996,7 +1008,7 @@ footer a{color:var(--green);text-decoration:none;}
         </div>
 
         <div class="class-card">
-          <div class="class-photo"><img src="images/mk_balloons2.jpg" alt="Шары"></div>
+          <div class="class-photo"><img src="images/mk_balloons_new.jpg" alt="Шары"></div>
           <div class="class-body">
             <h3>Игрушки из воздушных шаров</h3>
             <p>Такой мастер-класс обязательно поднимет настроение всем участникам! Так весело — сделать красивую поделку из шариков или букет из воздушных цветов. У нас много вариантов для вас!</p>
@@ -1006,7 +1018,7 @@ footer a{color:var(--green);text-decoration:none;}
         </div>
 
         <div class="class-card">
-          <div class="class-photo"><img src="images/mk_squish.jpg" alt="Сквиш"></div>
+          <div class="class-photo"><img src="images/mk_squish_new.jpg" alt="Сквиш"></div>
           <div class="class-body">
             <h3>Делаем сквиш</h3>
             <p>От стресса и скуки спасёт кошачья лапка! Это увлекательно для детей. Мягкие антистресс-игрушки своими руками — весело и полезно!</p>
