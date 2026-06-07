@@ -158,7 +158,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
 .classes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.5rem;}
 .class-card{background:white;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:transform .25s,box-shadow .25s;}
 .class-card:hover{transform:translateY(-6px);box-shadow:0 18px 45px rgba(0,0,0,.12);}
-.class-photo{height:200px;overflow:hidden;position:relative;}
+.class-photo{height:220px;overflow:hidden;position:relative;background:#f0f0f0;display:flex;align-items:center;justify-content:center;}
 .class-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
 .class-card:hover .class-photo img{transform:scale(1.06);}
 .class-photo-overlay{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.95);border-radius:50px;padding:5px 14px;font-size:.78rem;font-weight:800;}
@@ -966,7 +966,7 @@ footer a{color:var(--green);text-decoration:none;}
         </div>
 
         <div class="class-card">
-          <div class="class-photo" style="background:linear-gradient(135deg,#e8fff2,#b2f5d8);display:flex;align-items:center;justify-content:center;font-size:5rem;">🌸</div>
+          <div class="class-photo"><img src="images/mc_balloons.jpg" alt="Цветочные корзины"></div>
           <div class="class-body">
             <h3>Цветочные корзины из цветов, конфет и зефира</h3>
             <p>Создайте съедобный цветочный букет или цветочную композицию своими руками! Уместнее всего проводить к 8 марта, дню рождения, для именинника и к другим праздникам.</p>
@@ -1096,7 +1096,17 @@ const comments={};
 let currentImg='';
 let isAdmin=false;
 const ADMIN_PASS='Stepan0911';
-let newsItems=[];
+let newsItems=[
+  {
+    id:1,
+    title:'Подготовка к школе. Выпуск 2026',
+    text:'Поздравляем наших выпускников! 🎓 Дети завершили курс подготовки к школе и готовы к новым учебным достижениям. Спасибо за внимание, усердие и отличное поведение! Желаем вам успехов в школе!',
+    tag:'orange',
+    emoji:'🎓',
+    image:'images/graduation_2026_2.jpg',
+    date:'7 июня 2026'
+  }
+];
 
 function toggleAdmin(){
   const login=document.getElementById('adminLogin');
@@ -1152,7 +1162,7 @@ function renderNews(){
   list.innerHTML=newsItems.map(n=>`
     <div class="news-card">
       <div class="news-card-img" style="background:linear-gradient(135deg,#e8fff2,#e0f0ff);display:flex;align-items:center;justify-content:center;">
-        <div style="font-size:4rem;">${n.emoji}</div>
+        ${n.image?`<img src="${n.image}" alt="${n.title}" style="width:100%;height:100%;object-fit:cover;">`:`<div style="font-size:4rem;">${n.emoji}</div>`}
       </div>
       <div class="news-card-body">
         <div class="news-date">📅 ${n.date}</div>
