@@ -1292,17 +1292,18 @@ function submitForm(){
   if(!name||!phone){alert('Пожалуйста, заполните имя и телефон.');return;}
   const btn=document.querySelector('#formWrap .form-submit');
   if(btn){btn.disabled=true;btn.textContent='Отправляем...';}
+  var fd=new FormData();
+  fd.append('Имя',name);
+  fd.append('Телефон',phone);
+  fd.append('Эл. почта',email||'—');
+  fd.append('Сообщение',msg||'—');
+  fd.append('_subject','Новая заявка с сайта «Умный Ребёнок»');
+  fd.append('_template','table');
+  fd.append('_captcha','false');
   fetch(FORM_ENDPOINT,{
     method:'POST',
-    headers:{'Accept':'application/json','Content-Type':'application/json'},
-    body:JSON.stringify({
-      'Имя':name,
-      'Телефон':phone,
-      'Эл. почта':email,
-      'Сообщение':msg,
-      _subject:'Новая заявка с сайта «Умный Ребёнок»',
-      _template:'table'
-    })
+    headers:{'Accept':'application/json'},
+    body:fd
   }).then(function(r){
     if(r.ok){
       document.getElementById('formWrap').style.display='none';
